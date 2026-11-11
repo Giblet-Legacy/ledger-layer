@@ -1,0 +1,5 @@
+# VERSION — P4 Ledger (ledger-layer)
+# Function: the current release version of this layer. Advances only on freeze.
+# 0.0.0-dev means the layer is in build and has not yet been signed off at v1.
+
+0.0.0-dev
