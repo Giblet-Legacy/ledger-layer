@@ -8,8 +8,15 @@ Function:
     Envelope v2 for the underlying cryptographic primitives.
 
 Layer:    P4 — Ledger
-Depends:  P1 Envelope v2 (envelope_v2.py)
+Depends:  P1 Envelope v2 (envelope_v2.py), checked out as the sibling
+          directory `../envelope-layer`
 Consumed: P5 Genesis, P6 Canon Verify, P7 Record
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
-Status:   0.0.0-dev (in build, pre-freeze)
+Status:   1.0.0 frozen (ledger.py, SPEC.md).
+          v2.0.0 strict layer (ledger_v2.py, SPEC_V2.md) built, not
+          yet frozen — see NOTES.md Q1.
+
+New code imports `ledger_v2`, not `ledger`.
+
+Tests: `python -m pytest` (needs `cryptography` and `pytest`).

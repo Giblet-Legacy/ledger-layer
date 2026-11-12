@@ -5,6 +5,15 @@ Function:
     Executable expression of SPEC.md. Written before ledger.py
     per build discipline.
 
+Functions in this file:
+    1. key
+    2. temp_ledger
+    3. test_append_genesis
+    4. test_append_multiple
+    5. test_verify_ledger_valid
+    6. test_verify_ledger_tampered_record
+    7. test_verify_ledger_broken_chain
+
 Layer:    P4 — Ledger
 Spec:     SPEC.md v1.0.0
 Licence:  MSL-1.0
@@ -22,10 +31,16 @@ sys.path.insert(0, os.path.abspath('../envelope-layer'))
 
 import ledger
 
+# ---------------------------------------------------------------------------
+# 1. key
+# ---------------------------------------------------------------------------
 @pytest.fixture
 def key():
     return Ed25519PrivateKey.generate()
 
+# ---------------------------------------------------------------------------
+# 2. temp_ledger
+# ---------------------------------------------------------------------------
 @pytest.fixture
 def temp_ledger():
     fd, path = tempfile.mkstemp(suffix=".jsonl")
@@ -34,6 +49,9 @@ def temp_ledger():
     if os.path.exists(path):
         os.remove(path)
 
+# ---------------------------------------------------------------------------
+# 3. test_append_genesis
+# ---------------------------------------------------------------------------
 def test_append_genesis(temp_ledger, key):
     record = {"data": "first"}
     entry = ledger.append_entry(temp_ledger, record, key)
@@ -44,6 +62,9 @@ def test_append_genesis(temp_ledger, key):
     assert "hash" in entry
     assert "signature" in entry
 
+# ---------------------------------------------------------------------------
+# 4. test_append_multiple
+# ---------------------------------------------------------------------------
 def test_append_multiple(temp_ledger, key):
     e1 = ledger.append_entry(temp_ledger, {"data": "one"}, key)
     e2 = ledger.append_entry(temp_ledger, {"data": "two"}, key)
@@ -55,6 +76,9 @@ def test_append_multiple(temp_ledger, key):
     assert e3["seq"] == 2
     assert e3["prev"] == e2["hash"]
 
+# ---------------------------------------------------------------------------
+# 5. test_verify_ledger_valid
+# ---------------------------------------------------------------------------
 def test_verify_ledger_valid(temp_ledger, key):
     ledger.append_entry(temp_ledger, {"data": "one"}, key)
     ledger.append_entry(temp_ledger, {"data": "two"}, key)
@@ -62,6 +86,9 @@ def test_verify_ledger_valid(temp_ledger, key):
     
     assert ledger.verify_ledger(temp_ledger, key.public_key()) is True
 
+# ---------------------------------------------------------------------------
+# 6. test_verify_ledger_tampered_record
+# ---------------------------------------------------------------------------
 def test_verify_ledger_tampered_record(temp_ledger, key):
     ledger.append_entry(temp_ledger, {"data": "one"}, key)
     ledger.append_entry(temp_ledger, {"data": "two"}, key)
@@ -79,6 +106,9 @@ def test_verify_ledger_tampered_record(temp_ledger, key):
         
     assert ledger.verify_ledger(temp_ledger, key.public_key()) is False
 
+# ---------------------------------------------------------------------------
+# 7. test_verify_ledger_broken_chain
+# ---------------------------------------------------------------------------
 def test_verify_ledger_broken_chain(temp_ledger, key):
     ledger.append_entry(temp_ledger, {"data": "one"}, key)
     ledger.append_entry(temp_ledger, {"data": "two"}, key)

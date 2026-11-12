@@ -1,0 +1,10 @@
+# requirements.txt — P4 Ledger (ledger-layer)
+# Function: runtime dependencies for P4. P1 envelope-layer is not a pip
+# package: it is the sibling checkout ../envelope-layer.
+#
+# Confirmed on laptop (Windows, Python 3.13): cryptography (as P1).
+# S24 (Termux) version: unconfirmed — record it here when checked.
+#
+# Tests additionally need pytest (test tool, not a runtime dependency).
+
+cryptography

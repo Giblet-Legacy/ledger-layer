@@ -1,3 +1,7 @@
+# .gitattributes — line-ending policy for this repository.
+# Function: force LF in every checkout so the S24 (Termux) and laptop
+# (VS Code) working trees are byte-identical (CLAUDE.md, Dual-Device).
+
 * text=auto eol=lf
 *.py     text eol=lf
 *.md     text eol=lf
