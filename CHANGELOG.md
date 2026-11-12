@@ -13,8 +13,9 @@ Function:
 
 - `SPEC_V2.md`: strict layer over P4 v1.0.0, written before any code.
 - `test_ledger_v2.py`: 13 tests, written before ledger_v2.py and run
-  red first. 18/18 pass on the laptop (v1 5/5, v2 13/13), from the
-  repo root and from any other directory.
+  red first. 18/18 pass (v1 5/5, v2 13/13) on the laptop — from the
+  repo root and from any other directory — and on the S24.
+- NOTES Q2 resolved (James: "keep"): an empty ledger verifies False.
 - `ledger_v2.py`: resolves NOTES D1–D8. Every entry and every chain
   check is delegated to ledger.py, so v1 and v2 entries are
   byte-identical (tested both ways).
@@ -35,7 +36,6 @@ Function:
 
 - Ledgers written by v1 on the laptop have CRLF endings and fail v2
   until converted to LF (NOTES D1).
-- Not yet run on the S24 — state not confirmed there (NOTES Q1).
 
 ## [v1.0.0] — 2026-11-11
 

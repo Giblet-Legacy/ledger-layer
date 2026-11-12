@@ -12,16 +12,19 @@ Function:
 ## Open questions
 
 - **Q1 — Freeze v2.0.0?** ledger_v2.py, SPEC_V2.md and
-  test_ledger_v2.py are written and green on the laptop (Windows,
-  Python 3.13): 18/18 in total (v1 5/5, v2 13/13). Not yet run on the
-  S24. VERSION stays 1.0.0 and CHANGELOG holds this under
-  [Unreleased] until James confirms on both devices and freezes.
-  Raised 2026-11-12. Owner: James.
+  test_ledger_v2.py are green on both devices: 18/18 (v1 5/5, v2
+  13/13) on the laptop (Windows, Python 3.13) and on the S24
+  (confirmed by James 2026-11-12). Committed, not frozen: VERSION
+  stays 1.0.0 and CHANGELOG holds this under [Unreleased] until James
+  says freeze. Raised 2026-11-12. Owner: James.
+
+## Resolved questions
+
 - **Q2 — Empty ledger (see D4).** v2 decides an empty file is *not*
-  a valid ledger (False), matching a missing file. Decided by the
-  VS Code AI on delegation ("fix all issues"), because a ledger has at
-  least its genesis entry and v1's two answers contradicted each
-  other. James to confirm or reverse before freeze. Raised 2026-11-12.
+  a valid ledger (False), matching a missing file, because a ledger
+  has at least its genesis entry and v1's two answers contradicted
+  each other. Proposed by the VS Code AI on delegation. Raised
+  2026-11-12. **Resolved 2026-11-12 — James: "keep".**
 
 ## Divergences — ledger.py v1.0.0 (all resolved in SPEC_V2 / ledger_v2)
 
