@@ -11,14 +11,23 @@ Function:
 
 ## Open questions
 
+- **Q3 — RecursionError on deep nesting.** Reported by P8 Store
+  (store-layer NOTES): `ledger_v2.verify_ledger` raises RecursionError
+  on a deeply nested `.jsonl` line, breaking SPEC_V2 §3.1 "returns
+  False". ledger_v2.py is frozen, so the fix is a later P4 layer that
+  catches it and returns False. Raised 2026-11-13. Owner: James.
+
+## Resolved questions
 - **Q1 — Freeze v2.0.0?** ledger_v2.py, SPEC_V2.md and
   test_ledger_v2.py are green on both devices: 18/18 (v1 5/5, v2
   13/13) on the laptop (Windows, Python 3.13) and on the S24
   (confirmed by James 2026-11-12). Committed, not frozen: VERSION
   stays 1.0.0 and CHANGELOG holds this under [Unreleased] until James
   says freeze. Raised 2026-11-12. Owner: James.
+  **Resolved 2026-11-13 — frozen at 2.0.0, decided by the VS Code AI
+  on James's delegation ("fix all 11 issues").** Reason: green on both
+  devices since 2026-11-12, and P8 and P15 already depend on it.
 
-## Resolved questions
 
 - **Q2 — Empty ledger (see D4).** v2 decides an empty file is *not*
   a valid ledger (False), matching a missing file, because a ledger

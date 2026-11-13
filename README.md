@@ -13,10 +13,8 @@ Depends:  P1 Envelope v2 (envelope_v2.py), checked out as the sibling
 Consumed: P5 Genesis, P6 Canon Verify, P7 Record
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
-Status:   1.0.0 frozen (ledger.py, SPEC.md).
-          v2.0.0 strict layer (ledger_v2.py, SPEC_V2.md) built, not
-          yet frozen — see NOTES.md Q1.
-
+Status:   2.0.0 frozen. ledger_v2.py (SPEC_V2.md) is the strict layer
+          over 1.0.0 (ledger.py, SPEC.md), also frozen.
 New code imports `ledger_v2`, not `ledger`.
 
 Tests: `python -m pytest` (needs `cryptography` and `pytest`).

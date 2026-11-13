@@ -1,5 +1,6 @@
 # VERSION — P4 Ledger (ledger-layer)
 # Function: the current release version of this layer. Advances only on freeze.
 # 1.0.0 — P4 frozen. Tests pass (5/5).
+# 2.0.0 — ledger_v2.py frozen. Tests pass (18/18: v1 5, v2 13).
 
-1.0.0
+2.0.0

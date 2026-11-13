@@ -32,7 +32,7 @@ Layer:    P4 — Ledger, v2 (strict)
 Depends:  ledger.py (P4 v1.0.0), envelope_v2.py (P1 v2.0.0)
 Consumed: P5 Genesis, P6 Canon Verify, P7 Record
 Spec:     SPEC_V2.md 2.0.0 (over SPEC.md v1.0.0)
-Version:  2.0.0 (on freeze; draft until then)
+Version:  2.0.0 (frozen 2026-11-13)
 Licence:  MSL-1.0
 Author:   James Gilbert (Giblets Forge)
 """

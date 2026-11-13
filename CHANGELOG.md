@@ -7,10 +7,28 @@ Function:
     Updated at every sign-off. Format never changes shape, even when a
     section is empty.
 
-## [Unreleased] — 2026-11-12 (v2.0.0 candidate, not frozen)
+## [Unreleased]
 
 ### Good
 
+- (none)
+
+### Bad
+
+- (none)
+
+### Ugly
+
+- (none)
+
+## [v2.0.0] — 2026-11-13
+
+### Good
+
+- Frozen. NOTES Q1 resolved on James's delegation ("fix all 11
+  issues", 2026-11-13): 18/18 green on the laptop and the S24 since
+  2026-11-12, and P8 Store v2/v2.1 and P15 HAL v2 already build on it.
+  Unblocks P5 genesis_v3 and the Cockpit's move to v2 layers.
 - `SPEC_V2.md`: strict layer over P4 v1.0.0, written before any code.
 - `test_ledger_v2.py`: 13 tests, written before ledger_v2.py and run
   red first. 18/18 pass (v1 5/5, v2 13/13) on the laptop — from the
@@ -31,6 +49,10 @@ Function:
   on malformed lines, and lets a foreign key fork a chain (NOTES D1,
   D3, D5). Shipped in v1.0.0 because the five v1 tests never covered
   them.
+
+- Frozen with one known fault, reported by P8 Store: verify_ledger
+  raises RecursionError on a deeply nested line instead of returning
+  False (NOTES Q3). The fix is a later P4 layer.
 
 ### Ugly
 
